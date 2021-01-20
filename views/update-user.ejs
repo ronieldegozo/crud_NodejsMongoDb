@@ -1,0 +1,56 @@
+<%- include("include/_header.ejs") %>
+
+
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <a href="/" class="border-shadow">
+                <span class="text-gradient">All User<i class="fa fa-user" aria-hidden="true"></i></span>
+            </a>
+        </div>
+
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update <%= user.name%> </h2>
+            <span class="text-dark">Use the below form to Update account</span>
+        </div>
+
+        <form  method="POST" id="update_user">
+            <div class="new_user">
+                <div class="form-group">
+                    <input type="hidden"name="id" value="">
+                    <label for="name">Name</label>
+                    <input type="hidden" name="id" value="<%= user._id %>">
+                    <input type="text" class="form-control" name="name" value="<%= user.name%>" placeholder="Ronieldegozo">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text"  class="form-control" name="email" value="<%= user.email%>" placeholder="Try@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="Gender">Gender</label>
+                    <input type="radio"  name="gender" value="Male" <%= user.gender == 'Male'?'checked':'' %>>    
+                    <label for="male">Male</label>
+        
+                    <input type="radio" name="gender" value="Female" <%= user.gender == 'Female'?'checked':'' %>>   
+                    <label for="female">Female</label>
+                </div>
+        
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <input type="radio" name="status" value="Active" <%= user.status == 'Active'?'checked':'' %>>      
+                    <label for="male">Active</label> 
+        
+                    <input type="radio" name="status" value="Inactive" <%= user.status == 'Inactive'?'checked':'' %>>     
+                    <label for="female">In Active</label>
+                </div>
+        
+                <div class="form-group">
+                    <button type="submit" class="btn text-light form-control btn btn-primary update ">Save</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</main>
+
+<%- include("include/_footer.ejs") %>
